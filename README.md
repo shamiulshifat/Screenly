@@ -48,6 +48,79 @@ swift run Screenly
 - Signing + notarization runbook: `scripts/release_sign_notarize.md`
 - Launch checklist: `docs/LAUNCH_READINESS_CHECKLIST.md`
 
+### Manual Release (DMG)
+
+Quick helper script:
+
+```bash
+./scripts/release_dmg.sh --version v0.1.0
+```
+
+Or build + publish in one step:
+
+```bash
+./scripts/release_dmg.sh --version v0.1.0 --publish --notes "First public release."
+```
+
+1) **Build app bundle**
+
+From repo root:
+
+```bash
+./scripts/package_app_bundle.sh
+```
+
+This creates:
+
+- `dist/Screenly.app`
+
+(If you have signing identity set, script can sign too.)
+
+2) **(Recommended) Sign + notarize**
+
+Use your existing runbook:
+
+- `scripts/release_sign_notarize.md`
+
+This ensures users can open the app without scary Gatekeeper warnings.
+
+3) **Create DMG**
+
+After `dist/Screenly.app` is ready (and ideally notarized/stapled), run:
+
+```bash
+VERSION=v0.1.0
+DMG_NAME="Screenly-${VERSION}-macOS-arm64.dmg"
+
+hdiutil create \
+  -volname "Screenly" \
+  -srcfolder "dist/Screenly.app" \
+  -ov \
+  -format UDZO \
+  "dist/${DMG_NAME}"
+```
+
+You’ll get:
+
+- `dist/Screenly-v0.1.0-macOS-arm64.dmg`
+
+4) **Publish on GitHub Release**
+
+If tag doesn’t exist yet:
+
+```bash
+git tag -a v0.1.0 -m "Screenly v0.1.0"
+git push origin v0.1.0
+```
+
+Then create release and upload DMG (GitHub CLI):
+
+```bash
+gh release create v0.1.0 "dist/Screenly-v0.1.0-macOS-arm64.dmg" \
+  --title "Screenly v0.1.0" \
+  --notes "First public release."
+```
+
 ## Project Layout
 
 - `Sources/Screenly` — app/runtime, recording engine, UI, devices, effects, utilities
