@@ -4,7 +4,7 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT_DIR"
 
-APP_NAME="Framecast"
+APP_NAME="Screenly"
 BUILD_DIR=".build/apple/Products/Release"
 APP_DIR="dist/${APP_NAME}.app"
 CONTENTS_DIR="${APP_DIR}/Contents"
@@ -35,13 +35,13 @@ cat > "${CONTENTS_DIR}/Info.plist" <<PLIST
   <key>CFBundleName</key><string>${APP_NAME}</string>
   <key>CFBundleDisplayName</key><string>${APP_NAME}</string>
   <key>CFBundleExecutable</key><string>${APP_NAME}</string>
-  <key>CFBundleIdentifier</key><string>com.framecast.app</string>
+  <key>CFBundleIdentifier</key><string>com.screenly.app</string>
   <key>CFBundleVersion</key><string>1</string>
   <key>CFBundleShortVersionString</key><string>1.0.0</string>
   <key>CFBundlePackageType</key><string>APPL</string>
   <key>LSMinimumSystemVersion</key><string>13.0</string>
-  <key>NSCameraUsageDescription</key><string>Framecast uses camera input for webcam overlay recording.</string>
-  <key>NSMicrophoneUsageDescription</key><string>Framecast uses microphone input for voice capture.</string>
+  <key>NSCameraUsageDescription</key><string>Screenly uses camera input for webcam overlay recording.</string>
+  <key>NSMicrophoneUsageDescription</key><string>Screenly uses microphone input for voice capture.</string>
 </dict>
 </plist>
 PLIST

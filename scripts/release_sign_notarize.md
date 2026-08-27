@@ -15,19 +15,19 @@ If using SwiftPM executable only, wrap into `.app` before signing, or migrate to
 ```bash
 codesign --deep --force --verify --verbose \
   --sign "Developer ID Application: <TEAM NAME>" \
-  /path/to/Framecast.app
+  /path/to/Screenly.app
 ```
 
 ## 3) Zip for notarization
 
 ```bash
-ditto -c -k --keepParent /path/to/Framecast.app /tmp/Framecast.zip
+ditto -c -k --keepParent /path/to/Screenly.app /tmp/Screenly.zip
 ```
 
 ## 4) Submit notarization
 
 ```bash
-xcrun notarytool submit /tmp/Framecast.zip \
+xcrun notarytool submit /tmp/Screenly.zip \
   --keychain-profile "AC_NOTARY_PROFILE" \
   --wait
 ```
@@ -35,14 +35,14 @@ xcrun notarytool submit /tmp/Framecast.zip \
 ## 5) Staple ticket
 
 ```bash
-xcrun stapler staple /path/to/Framecast.app
+xcrun stapler staple /path/to/Screenly.app
 ```
 
 ## 6) Verify Gatekeeper
 
 ```bash
-spctl --assess --type execute --verbose /path/to/Framecast.app
-codesign --verify --deep --strict --verbose=2 /path/to/Framecast.app
+spctl --assess --type execute --verbose /path/to/Screenly.app
+codesign --verify --deep --strict --verbose=2 /path/to/Screenly.app
 ```
 
 ## 7) Smoke test on clean user

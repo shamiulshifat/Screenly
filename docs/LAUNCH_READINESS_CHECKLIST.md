@@ -1,4 +1,4 @@
-# Framecast Launch Readiness Checklist
+# Screenly Launch Readiness Checklist
 
 This checklist tracks the final path from feature-complete to production launch.
 

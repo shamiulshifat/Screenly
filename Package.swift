@@ -2,17 +2,17 @@
 import PackageDescription
 
 let package = Package(
-    name: "Framecast",
+    name: "Screenly",
     platforms: [
         .macOS(.v13)
     ],
     products: [
-        .executable(name: "Framecast", targets: ["Framecast"])
+        .executable(name: "Screenly", targets: ["Screenly"])
     ],
     targets: [
         .executableTarget(
-            name: "Framecast",
-            path: "Sources/Framecast"
+            name: "Screenly",
+            path: "Sources/Screenly"
         )
     ]
 )
