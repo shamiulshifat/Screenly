@@ -1,6 +1,54 @@
 # Screenly
 Screen recorder app for mac
 
+## Current implementation status
+
+Current implementation progress:
+
+- native Swift macOS app scaffold (SwiftUI + ScreenCaptureKit + AVFoundation)
+- explicit recording state machine and coordinator
+- display/window/application source discovery and grouped picker
+- start/stop/pause/resume screen recording pipeline with timestamp compensation
+- H.264 MP4 local output in `~/Movies/Framecast/`
+- system audio + selected microphone recording (with mixed final output)
+- microphone discovery + live meter + mute toggle
+- camera discovery + camera preview + camera enable toggle
+- floating recording overlay panel
+- global hotkeys + temporary HUD notifications
+- menu-bar quick controls (start/pause/stop)
+- typed errors, permission recovery actions, and unified logging
+
+In progress:
+
+- composited camera overlay in the final encoded video
+- realtime background blur/replacement processing pipeline for recorded output
+
+## Run locally
+
+```bash
+swift build
+swift run Framecast
+```
+
+When first recording, macOS should prompt for Screen Recording permission.
+If permission is denied, enable it in System Settings and relaunch the app.
+
+## Launch readiness workflow
+
+Use these files for release hardening and shipping checks:
+
+- `docs/LAUNCH_READINESS_CHECKLIST.md`
+- `scripts/preflight_release.sh`
+- `scripts/release_sign_notarize.md`
+
+Run preflight:
+
+```bash
+./scripts/preflight_release.sh
+```
+
+Then complete code-signing + notarization with your Apple Developer credentials using the runbook.
+
 Framecast — Native macOS Screen Recorder
 
 Product Summary

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>CFBundleName</key><string>Framecast</string>
+  <key>CFBundleDisplayName</key><string>Framecast</string>
+  <key>CFBundleExecutable</key><string>Framecast</string>
+  <key>CFBundleIdentifier</key><string>com.framecast.app</string>
+  <key>CFBundleVersion</key><string>1</string>
+  <key>CFBundleShortVersionString</key><string>1.0.0</string>
+  <key>CFBundlePackageType</key><string>APPL</string>
+  <key>LSMinimumSystemVersion</key><string>13.0</string>
+  <key>NSCameraUsageDescription</key><string>Framecast uses camera input for webcam overlay recording.</string>
+  <key>NSMicrophoneUsageDescription</key><string>Framecast uses microphone input for voice capture.</string>
+</dict>
+</plist>
